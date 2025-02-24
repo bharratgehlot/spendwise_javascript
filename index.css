@@ -1,0 +1,135 @@
+body {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  margin: 5px;
+  padding: 5px;
+  background-color: #dfd214e0;
+}
+
+.container {
+  max-width: 90%;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px 0px rgba(138, 96, 19, 0.75);
+}
+
+h1 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 2.0rem;
+}
+
+.balance-box {
+  border: 1px solid #eeeceb;
+  background-color: #00000056;
+  padding: 5px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 40%;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.bal-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  display: grid;
+  grid-gap: 10px;
+  color: white;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: calc(100% - 20px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+input[type="submit"],
+button[type="button"] {
+  width: calc(100% - 3px);
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input[type="submit"],
+button[type="button"] {
+  background: linear-gradient(to bottom, #af7a28, #8a6013);
+}
+
+input[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #af7a28;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.todaysread {
+  display: block;
+  color: #ffffff;
+  text-align: center;
+}
+
+.past-expenses-btn {
+  display: block;
+  width: calc(100% - 3px);
+  padding: 10px;
+  color: #af7a28;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.past-expenses-btn:hover {
+  background-color: #dfd9d9;
+}
+
+
+#toggleButton {
+  margin: 0;
+  /* Reset margin */
+  padding: 1px;
+  /* Reset padding */
+  position: fixed;
+  /* Position button */
+  top: 10px;
+  /* Distance from top */
+  border: none;
+  right: 10px;
+  /* Distance from right */
+  background-color: rgba(0, 0, 0, 0.815);
+  color: white;
+}
+
+#toggleButton.locked {
+  background-color: rgba(255, 0, 0, 0.822);
+  padding: 1px;
+  /* Example styling for locked state */
+  color: white;
+}
+
+#toggleButton.unlocked {
+  background-color: rgba(0, 128, 0, 0.801);
+  padding: 1px;
+  /* Example styling for unlocked state */
+  color: white;
+}

@@ -1,0 +1,54 @@
+<!--Spendwise is a financial accountant tool that managees all of the users spending, debt, and reporting-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spendwise - A Financial Accountant Tool </title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="container" id="container">
+    <button id="toggleButton"></button>
+    <h1>--Spend-WISE</h1>
+    <div class="bal-container">
+      <div class="balance-box">Bal: <span id="availableBalance"></span> Rs</div>
+      <div class="balance-box" id="totalMoneySpent">Spent: <span id="totalSpentAmount"></span> Rs</div>
+    </div>
+    <br>
+    <form id="expenseForm">
+      <label for="userName">Name:</label>
+      <input type="text" id="userName" name="userName" required>
+      <label for="money">Money (INR):</label>
+      <input type="number" id="money" name="money" required>
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" required>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location">
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+        <option value="Recurring">Recurring</option>
+        <option value="One Time">One Time</option>
+      </select>
+      <input type="submit" value="Add Expense">
+    </form>
+    <p id="successMessage" style="display: none; text-align: center; color: rgb(255, 255, 255);">Data submitted
+      successfully!</p>
+    <button class="past-expenses-btn" onclick="window.location.href='expenses.html';">Past Expenses</button><br>
+    <a href="#" id="todaysReadLink" class="todaysread">Today's Read</a>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
