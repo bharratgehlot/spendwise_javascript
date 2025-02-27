@@ -2,12 +2,13 @@ body {
   font-family: 'Trebuchet MS', Arial, sans-serif;
   margin: 5px;
   padding: 5px;
-  background-color: #dfd214e0;
+  background-color: #e9e64fe0;
 }
 
 .container {
-  max-width: 90%;
+  max-width: 350px;
   padding: 20px;
+  margin: 0 auto;
   border-radius: 5px;
   box-shadow: 10px 10px 5px 0px rgba(138, 96, 19, 0.75);
 }
@@ -70,13 +71,13 @@ button[type="button"] {
 
 input[type="submit"],
 button[type="button"] {
-  background: linear-gradient(to bottom, #af7a28, #8a6013);
+  background: linear-gradient(to bottom, #d16c44, #c91a1a);
 }
 
 input[type="submit"]:hover,
 button[type="button"]:hover {
-  background-color: #af7a28;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #dd551f;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .todaysread {
@@ -132,4 +133,10 @@ button[type="button"]:hover {
   padding: 1px;
   /* Example styling for unlocked state */
   color: white;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
 }

@@ -3,13 +3,28 @@
       font-family: 'Trebuchet MS', sans-serif;
       margin: 0px;
       padding: 20px;
-      background-color: #dfd21480;
+      background-color: #ffffff;
+  /*  display: flex;
+      justify-content: center; */
     }
+
+
+    .container {
+      max-width: 350px;
+      padding: 20px;
+      margin: 0 auto;
+      background-color: #dfd21480;
+      border-radius: 5px;
+      box-shadow: 10px 10px 5px 0px rgba(138, 96, 19, 0.75);
+    }
+
+
 
     h1 {
       color: rgb(255, 255, 255);
       text-align: center;
       background-color: #00000028;
+      padding: 5px;
     }
 
     table {
@@ -30,7 +45,7 @@
       text-overflow: ellipsis;
       border-right: 1px solid #8a6013bf;
       background-color: white;
-
+      font-size: 14px;
     }
 
     th {
@@ -66,15 +81,24 @@
       padding: 5px;
       border-radius: 3px;
       margin-bottom: 20px;
-      width: 40%;
+      width: 50%;
       text-align: center;
       color: white;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
 
+
+    .bal-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+
+      width: 100%;
+    }
+
     .bal-container button {
-      padding: 10px 20px;
-      background-color: #8a601391;
+      padding: 8px 12px;
+      background-color: #dd551f;
       color: #fff;
       border: none;
       border-radius: 3px;
@@ -87,6 +111,8 @@
     }
 
     @media screen and (max-width: 600px) {
+
+
 
       th,
       td {

@@ -1,57 +1,64 @@
+<!--Spendwise is a financial accountant tool that managees all of the users spending, debt, and reporting-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Past Expenses - Spendwise | mangotools.in </title>
+  <title>Past Expenses - Spendwise</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
-  <link rel="stylesheet" href="expenses.css">
-
+  <link rel="stylesheet" href="expense_alt.css">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.15/jspdf.plugin.autotable.js"></script>
 
-  
+
+
 </head>
 
 <body>
+  <div class="container" id="container">
 
-  <h1>Past Expenses</h1>
-  <a  href="https://icons8.com/icon/87392/waste"></a> <a href="https://icons8.com"></a>
-  <div class="balance-box"> Balance: <span id="availableBalance"></span> INR </div>
-  <div class="bal-container">
-    <button onclick="confirmClearStorage()">Clear</button>
-    <button onclick="addBalance()">Add</button>
-    <button onclick="generatePDF()">Download</button>
-    <button>Refer</button>
+    <h1>Past Expenses</h1>
+    <a href="https://icons8.com/icon/87392/waste"></a> <a href="https://icons8.com"></a>
+
+    <div class="balance-box"> Balance: <span id="availableBalance"></span> INR </div>
+
+    <div class="bal-container">
+      <button onclick="confirmClearStorage()">Clear</button>
+      <button onclick="addBalance()">Add</button>
+      <button onclick="generatePDF()">Download</button>
+      <button>Refer</button>
+    </div>
+
+
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Money (INR)</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Mark As Wasted?</th>
+          </tr>
+        </thead>
+        <tbody id="expenseTableBody"></tbody>
+      </table>
+      <p id="noDataMessage" class="no-data-message" style="display: none;">No data to clear.</p>
+      <!-- No data message -->
+      <p id="successMessage" class="success-message">Data cleared successfully!</p> <!-- Success message -->
+    </div>
   </div>
 
-
-  <div style="overflow-x: auto;">
-    <table>
-      <thead>
-        <tr>
-          <th style="width: 5%;">#</th>
-          <th style="width: 20%;">Money (INR)</th>
-          <th style="width: 25%;">Description</th>
-          <th style="width: 15%;">Date</th>
-          <th style="width: 15%;">Location</th>
-          <th style="width: 20%;">Category</th>
-          <th style="width: 5%;">Mark As Wasted?</th>
-        </tr>
-      </thead>
-      <tbody id="expenseTableBody"></tbody>
-    </table>
-    <p id="noDataMessage" class="no-data-message" style="display: none;">No data to clear.</p> <!-- No data message -->
-    <p id="successMessage" class="success-message">Data cleared successfully!</p> <!-- Success message -->
-  </div>
-
+  <!-- 
   <script>
 
     // ---BLOCK 1 ---- Retrieve available balance & saved wasted status ------- //
@@ -124,7 +131,7 @@
       }
     });
 
-   // <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/waste.png" alt="waste"/>
+    // <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/waste.png" alt="waste"/>
 
     // ---BLOCK 4 ---- function to get month number ------- //
 
@@ -239,7 +246,9 @@
     }
 
   </script>
+-->
 
+  <script src="expense.js"></script>
 </body>
 
 </html>

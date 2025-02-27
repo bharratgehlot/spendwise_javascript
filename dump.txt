@@ -1,0 +1,14 @@
+<table>
+      <thead>
+        <tr>
+          <th style="width: 5%;">#</th>
+          <th style="width: 20%;">Money (INR)</th>
+          <th style="width: 25%;">Description</th>
+          <th style="width: 15%;">Date</th>
+          <th style="width: 15%;">Location</th>
+          <th style="width: 20%;">Category</th>
+          <th style="width: 5%;">Mark As Wasted?</th>
+        </tr>
+      </thead>
+      <tbody id="expenseTableBody"></tbody>
+    </table>

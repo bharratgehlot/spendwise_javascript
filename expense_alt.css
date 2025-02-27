@@ -1,0 +1,124 @@
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 400px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: rgba(223, 210, 20, 0.5);
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px rgba(138, 96, 19, 0.75);
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.16);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border: 2px solid rgba(138, 96, 19, 0.75);
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(138, 96, 19, 0.75);
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-right: 1px solid rgba(138, 96, 19, 0.75);
+  background-color: white;
+  font-size: 14px;
+}
+
+th {
+  background-color: #dfd114;
+  color: #000000;
+}
+
+.no-data-message {
+  text-align: center;
+  margin-top: 15px;
+  color: #555;
+}
+
+.success-message {
+  display: none;
+  text-align: center;
+  color: green;
+}
+
+.wasted-row {
+  background-color: #ffcccc;
+}
+
+.waste-icon {
+  cursor: pointer;
+  color: red;
+}
+
+.balance-box {
+  border: 1px solid #eeeceb;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 8px;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  width: 50%;
+  min-width: 120px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bal-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+
+.bal-container button {
+  padding: 8px 12px;
+  background-color: #dd551f;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-grow: 1;
+  min-width: 120px;
+}
+
+.bal-container button:hover {
+  background-color: #af7a28;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 95%;
+  }
+
+  th, td {
+    white-space: normal;
+    font-size: 13px;
+  }
+
+  .balance-box {
+    width: 100%;
+  }
+
+  .bal-container {
+    justify-content: center;
+  }
+}
