@@ -80,10 +80,28 @@ button[type="button"]:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.todaysread {
-  display: block;
+
+.link-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  
+}
+
+
+.todaysread  {
   color: #ffffff;
   text-align: center;
+
+}
+
+.Budget_Planner {
+  color: #ffffff;
+  text-align: center;
+
+}
+.todaysread:hover {
+  text-decoration: underline;
 }
 
 .past-expenses-btn {
@@ -105,20 +123,20 @@ button[type="button"]:hover {
 }
 
 
+.button-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+
 #toggleButton {
-  margin: 0;
-  /* Reset margin */
-  padding: 1px;
-  /* Reset padding */
-  position: fixed;
-  /* Position button */
-  top: 10px;
-  /* Distance from top */
+  position: absolute;
   border: none;
-  right: 10px;
-  /* Distance from right */
+  top: -19px;
+  right: -19px;
   background-color: rgba(0, 0, 0, 0.815);
   color: white;
+  padding: 5px 10px;
 }
 
 #toggleButton.locked {

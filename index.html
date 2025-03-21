@@ -16,18 +16,18 @@
   <link rel="stylesheet" href="index.css">
 </head>
 
-
-
-
-
 <body>
   <div class="container" id="container">
-    
+    <div class="button-wrapper">
     <button id="toggleButton"></button>
+  </div>
+
     <h1>--Spend-WISE</h1>
     <div class="bal-container">
       <div class="balance-box">Bal: <span id="availableBalance"></span> Rs</div>
       <div class="balance-box" id="totalMoneySpent">Spent: <span id="totalSpentAmount"></span> Rs</div>
+
+
     </div>
     <br>
     <form id="expenseForm">
@@ -50,8 +50,13 @@
     </form>
     <p id="successMessage" style="display: none; text-align: center; color: rgb(255, 255, 255);">Data submitted
       successfully!</p>
+
     <button class="past-expenses-btn" onclick="window.location.href='expenses.html';">Past Expenses</button><br>
-    <a href="#" id="todaysReadLink" class="todaysread">Today's Read</a>
+    <div class="link-container">
+      <a href="#" id="todaysReadLink" class="todaysread">Today's Read</a>
+      <a href="budget_planner.html" class="Budget_Planner">Budget Planner</a>
+    </div>
+
   </div>
 
   <script src="index.js"></script>

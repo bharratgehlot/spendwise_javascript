@@ -10,18 +10,19 @@ function getRandomInt(min, max) {
 
 // ---BLOCK 2 --- Function to update the "Today's Read" link ------- //
 
+// Call the function to update the link when the page is loaded
+document.addEventListener("DOMContentLoaded", updateTodaysReadLink);
+
 function updateTodaysReadLink() {
 
   // Check last redirection
   var lastRedirectionDate = localStorage.getItem("lastRedirectionDate");
-
+  var storedArticleURL = localStorage.getItem("storedArticleURl");
   // Get the current date
-  var currentDate = new Date();
-
-  // If last redirection date is not stored or if it's been more than 24 hours since last redirection
-  if (!lastRedirectionDate || (currentDate - new Date(lastRedirectionDate)) >= (24 * 60 * 60 * 1000)) {
-
-    // Number of articles you have
+  var currentDate = new Date().toDateString();
+/*
+  //  Only Updates if 24 hours passed before clicking
+  if (!lastRedirectionDate || new Date(lastRedirectionDate).toDateString() !== currentDate.toDateString()) {
     var numArticles = 10;
 
     // Generate a random article number
@@ -36,14 +37,30 @@ function updateTodaysReadLink() {
     document.getElementById("todaysReadLink").setAttribute("href", randomArticleURL);
 
     // Store the current date as the last redirection date in local storage
-    localStorage.setItem("lastRedirectionDate", currentDate);
+    localStorage.setItem("lastRedirectionDate", currentDate.toDateString());
+
+*/
+
+if (storedArticleURL && lastRedirectionDate === currentDate) {
+  // If already updated today, reuse the same link
+  console.log("Reusing stored URL:", storedArticleURL);
+  document.getElementById("todaysReadLink").setAttribute("href", storedArticleURL);
+} else {
+  var numArticles = 10;
+  var randomArticleNumber = getRandomInt(1, numArticles);
+  console.log("Random Article Number:", randomArticleNumber);
+
+  var randomArticleURL = "articles/article" + randomArticleNumber + ".html";
+  console.log("Generated new URL:", randomArticleURL);
+
+  document.getElementById("todaysReadLink").setAttribute("href", randomArticleURL);
+
+  // Store the new link and date
+  localStorage.setItem("lastRedirectionDate", currentDate);
+  localStorage.setItem("storedArticleURL", randomArticleURL);
+
   }
 }
-
-
-// Call the function to update the link when the page is loaded
-updateTodaysReadLink();
-
 
 
 
