@@ -184,13 +184,12 @@ function getMonthName(monthNumber) {
 // ---BLOCK 9 ---- Refer Button Functinality - Share on Whatsapp ------- //  
 
 
-function shareWhatsapp() {
-
-  let message = "💰 *SpendWise* - Your Smart Expense Tracker! 🚀\n\n" +
-    "Easily manage your expenses, track debt, and generate reports in one place. " +
-    "Start saving smarter today!\n\n" +
-    "👉 Check it out here: https://www.spendwise.online";
-
-  let encodedMessge = encodeURIComponent(message);
+function shareWhatsApp() {
+  let message = "💰 *SpendWise* - Your Smart Expense Tracker! 🚀\n\n" + 
+                "Easily manage your expenses, track debt, and generate reports in one place. " + 
+                "Start saving smarter today!\n\n" + 
+                "👉 Check it out here: https://www.spendwise.online";
+  
+  let encodedMessage = encodeURIComponent(message);
   window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
 } 
