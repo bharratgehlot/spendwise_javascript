@@ -2,7 +2,7 @@ body {
   font-family: 'Trebuchet MS', Arial, sans-serif;
   margin: 5px;
   padding: 5px;
-  background-color: #e9e64fe0;
+  background-color: rgba(223, 210, 20, 0.5);;
 }
 
 .container {
