@@ -21,8 +21,3 @@ Spendwise is a simple personal expense tracker designed to help individuals moni
 - **AWS Lightsail**: Hosted from March to May
 - **Current Status**: Site is currently down
 
-## Setup Instructions
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/spendwise.git
