@@ -16,22 +16,22 @@
   <link rel="stylesheet" href="index.css">
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G0Y921MTGZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0Y921MTGZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-G0Y921MTGZ');
-</script>
+    gtag('config', 'G-G0Y921MTGZ');
+  </script>
 
 </head>
 
 <body>
   <div class="container" id="container">
     <div class="button-wrapper">
-    <button id="toggleButton"></button>
-  </div>
+      <button id="toggleButton"></button>
+    </div>
 
     <h1>--Spend-WISE</h1>
     <div class="bal-container">
@@ -79,6 +79,19 @@
   </div>
 
   <script src="index.js"></script>
+  <script>
+    // Set default date to today
+    window.addEventListener('DOMContentLoaded', function () {
+      const dateInput = document.getElementById('date');
+      if (dateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        dateInput.value = `${yyyy}-${mm}-${dd}`;
+      }
+    });
+  </script>
 </body>
 
 </html>

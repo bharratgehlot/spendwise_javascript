@@ -1,8 +1,14 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
 body {
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
   margin: 0;
   padding: 20px;
   background-color: #ffffff;
+  overflow-x: hidden;
 }
 
 .container {
@@ -58,8 +64,12 @@ th {
   color: green;
 }
 
-.wasted-row {
-  background-color: #ffcccc;
+.wasted-row td {
+  background-color: #ffcccc !important;
+  text-decoration: line-through;
+  color: #a00000;
+  font-style: italic;
+   transition: background-color 0.3s ease;
 }
 
 .waste-icon {
@@ -92,6 +102,8 @@ th {
   justify-content: space-between;
   width: 100%;
   gap: 10px;
+
+ 
 }
 
 .bal-container button {
@@ -124,10 +136,16 @@ th {
     font-size: 13px;
   }
 
+
+
   .balance-box {
     width: 100%;
  
 
+  }
+
+  .bal-container button {
+    min-width: unset;
   }
 
   .bal-container {

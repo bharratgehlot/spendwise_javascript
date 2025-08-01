@@ -1,8 +1,10 @@
+
+
 body {
   font-family: 'Trebuchet MS', Arial, sans-serif;
   margin: 5px;
   padding: 5px;
-  background-color: rgba(223, 210, 20, 0.5);;
+  background-color: rgba(223, 210, 20, 0.5);
 }
 
 .container {
@@ -11,12 +13,13 @@ body {
   margin: 0 auto;
   border-radius: 5px;
   box-shadow: 10px 10px 5px 0px rgba(138, 96, 19, 0.75);
+
 }
 
 h1 {
   text-align: center;
   color: rgb(255, 255, 255);
-  font-size: 2.0rem;
+  font-size: 2rem;
 }
 
 .balance-box {
@@ -48,36 +51,12 @@ label {
 
 input[type="text"],
 input[type="number"],
+input[type="date"],
 select {
-  width: calc(100% - 20px);
+/*  width: calc(100% - 20px); */
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
-
-
-input[type="submit"],
-button[type="button"] {
-  width: calc(100% - 3px);
-  padding: 10px;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-input[type="submit"],
-button[type="button"] {
-  background: linear-gradient(to bottom, #d16c44, #c91a1a);
-}
-
-input[type="submit"]:hover,
-button[type="button"]:hover {
-  background-color: #dd551f;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -85,41 +64,85 @@ button[type="button"]:hover {
   display: flex;
   justify-content: center;
   gap: 15px;
-  
+
 }
 
 
-.todaysread  {
+
+
+.Budget_Planner,
+.todaysread {
   color: #ffffff;
   text-align: center;
+  text-decoration: none;
 
 }
 
-.Budget_Planner {
-  color: #ffffff;
-  text-align: center;
-
-}
 .todaysread:hover {
   text-decoration: underline;
 }
 
+.Budget_Planner:hover {
+  text-decoration: underline;
+}
+
+
+
+input[type="submit"],
+button[type="button"] {
+  /*width: calc(100% - 3px); */
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  /*  background: linear-gradient(to bottom, #d16c44, #c91a1a);*/
+
+  background: linear-gradient(135deg, #d16c44, #c91a1a);
+
+
+
+
+  transition: 0.3s ease-in;
+}
+
+
+
+input[type="submit"]:hover,
+button[type="button"]:hover {
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #f7b88c, #b23e2a);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
 .past-expenses-btn {
   display: block;
-  width: calc(100% - 3px);
+ /* width: calc(100% - 3px); */
   padding: 10px;
-  color: #af7a28;
+  /*color: #af7a28; */
   border: none;
-  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.877);
+  border-radius: 3px;
   cursor: pointer;
   text-align: center;
+  background-color: #ffffff;
   font-weight: bold;
   font-size: 14px;
   text-decoration: none;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
 .past-expenses-btn:hover {
   background-color: #dfd9d9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -142,14 +165,14 @@ button[type="button"]:hover {
 #toggleButton.locked {
   background-color: rgba(255, 0, 0, 0.822);
   padding: 1px;
-  /* Example styling for locked state */
+
   color: white;
 }
 
 #toggleButton.unlocked {
   background-color: rgba(0, 128, 0, 0.801);
   padding: 1px;
-  /* Example styling for unlocked state */
+
   color: white;
 }
 
@@ -157,4 +180,10 @@ button[type="button"]:hover {
   .container {
     max-width: 90%;
   }
+
+  .bal-container {
+    flex-direction: row;
+    gap: 5px;
+  }
+
 }

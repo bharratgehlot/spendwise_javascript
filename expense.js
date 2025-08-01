@@ -63,7 +63,7 @@ expenses.forEach((expense, index) => {
         <td>${expense.category}</td>
       `;
   let wasteCell = row.insertCell();
-  wasteCell.innerHTML = `<span class="waste-icon" onclick="handleWasteClick(event, ${index})">Wasted?</span>`;
+  wasteCell.innerHTML = `<span class="waste-icon" onclick="handleWasteClick(event, ${index})">🗑️</span>`;
   if (wastedStatus[index]) {
     markAsWasted(row, index);
   }
