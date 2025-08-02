@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spendwise - User Settings</title>
+  <link rel="stylesheet" href="user_settings.css" />
+
+  <!-- Favicons (optional for new pages) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+  <meta name="theme-color" content="#ffffff" />
+
+</head>
+
+<body>
+  <div class="container" id="container">
+    <!-- Optional toggle button -->
+
+
+    <!-- Page Title -->
+    <h1>App Settings: </h1>
+
+
+
+    <!-- Dynamic Message -->
+    <p style="text-align: center; color: white; background-color:crimson;">Some warning message</p>
+
+    <br />
+
+
+
+    <form id="otpForm">
+      <p>
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" placeholder="yourname@example.com" required>
+      </p>
+      <p>
+        <button type="submit">Verify</button>
+      </p>
+    </form>
+
+    <form id="verifyForm" style="display: none;">
+      <input type="text" id="enteredOtp" placeholder="Enter OTP" required />
+      <button type="submit">Verify OTP</button>
+    </form>
+
+
+
+
+    <!-- Navigation Buttons -->
+    <button class="past-expenses-btn">Go to Home</button><br />
+
+    <!-- Additional Links -->
+
+
+    <script src="user_settings.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
+
+
+    <script>
+      (function () {
+        emailjs.init("HXT5ap2kKAvAFyP0F"); // Get this from EmailJS dashboard > Account > API Keys
+      })();
+    </script>
+
+
+  </div>
+</body>
+
+</html>

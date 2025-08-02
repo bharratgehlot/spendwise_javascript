@@ -19,7 +19,7 @@ Version 2.1.0 Now released
 
 
 
-- Current: 2.2.0
+- Version: 2.2.0
 
 Features added:
 
@@ -36,3 +36,6 @@ Features added:
 3. A Small settings icon with dedicated page
 4. Add new template for happy august link
 5. Add a new warning message that says updated to new vesion with link to logs
+6. Limit table row on Mobile
+7. Added some logic warnings on index.html page
+8. Email Verification Logic In Settings Page

@@ -155,8 +155,16 @@ button[type="button"]:hover {
   width: 100%;
 }
 
+.settings-button-wrapper2 {
+  position: relative;
+  width: 100%;
 
-#toggleButton {
+
+}
+
+
+
+#settingsButton {
   position: absolute;
   border: none;
   top: -19px;
@@ -164,7 +172,24 @@ button[type="button"]:hover {
   background-color: rgba(0, 0, 0, 0.815);
   color: white;
   padding: 5px 10px;
+  cursor: pointer;
 }
+
+
+
+
+
+#toggleButton {
+  position: absolute;
+  border: none;
+  top: -19px;
+  left: -19px;
+  background-color: rgba(0, 0, 0, 0.815);
+  color: white;
+  padding: 5px 10px;
+}
+
+
 
 #toggleButton.locked {
   background-color: rgba(255, 0, 0, 0.822);

@@ -180,6 +180,22 @@ document.getElementById('expenseForm').addEventListener('submit', function (e) {
   let location = document.getElementById('location').value;
   let category = document.getElementById('category').value;
 
+  if (money > availableBalance) {
+    alert("You don't have enough money to spend this amount.");
+    return;
+  }
+
+  if (!category) {
+    alert("Please select a category.");
+    return;
+  }
+
+  if (money <= 0) {
+    alert("Please enter a valid amount.");
+    return;
+  }
+
+
   let expense = {
     userName,
     money,
@@ -197,6 +213,7 @@ document.getElementById('expenseForm').addEventListener('submit', function (e) {
   availableBalance -= money;
   document.getElementById('availableBalance').textContent = availableBalance;
   localStorage.setItem('availableBalance', availableBalance);
+
 
   // Update total money spent
   totalMoneySpent += money;
@@ -227,3 +244,4 @@ window.addEventListener('storage', function (e) {
   }
 });
 
+// settings
