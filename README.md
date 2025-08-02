@@ -27,3 +27,33 @@ Spendwise is a simple personal expense tracker designed to help individuals moni
   <img src="https://github.com/user-attachments/assets/f35e4bde-0b71-48eb-881d-3d8d7212f217" width="45%" />
   <img src="https://github.com/user-attachments/assets/c4706ae6-701a-49dd-8c10-7915947b94a8" width="45%" />
 </p>
+
+
+## App Versions:
+
+- Version - 2.0.0 BEFORE 31 July 2025
+
+Now: After 1 August 2025
+
+
+
+- Version: 2.1.0
+
+Features Added:
+
+1. Added "Happy August"
+2. Added Default date set - no need to set manually now.
+3. Fixed Date improper layout.
+4. Fixed Layout Inconsistencies on both pages
+
+Version 2.1.0 Now released 
+
+
+
+- Current: 2.2.0
+
+Features to be added:
+
+1. Logo
+2. Fresh 30 Backgrounds
+3. A Small settings icon with dedicated page
