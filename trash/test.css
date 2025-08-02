@@ -1,0 +1,87 @@
+body {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  margin: 5px;
+  padding: 5px;
+  background-color: #f4f6f8;
+  display: block;
+}
+
+.container {
+  max-width: 550px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+  text-align: center;
+  color: black;
+  font-size: 2rem;
+}
+
+.button-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+#toggleButton {
+  position: absolute;
+  top: -19px;
+  right: -19px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.815);
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.past-expenses-btn {
+  display: block;
+  padding: 10px;
+  border: none;
+  color: rgba(0, 0, 0, 0.877);
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.past-expenses-btn:hover {
+  background-color: #dfd9d9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Article Content Styling --- */
+.article-content p {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  color: #333;
+  font-size: 15px;
+}
+
+.article-content p:first-child {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  font-size: 16px;
+}
+
+.article-content p:last-child {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-style: italic;
+  color: #666;
+  text-align: right;
+}

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spendwise - New Page</title>
-  <link rel="stylesheet" href="default_css.css" />
+  <title>Spendwise - Article Page</title>
+  <link rel="stylesheet" href="dynamic_test.css" />
 
-  <!-- Favicons (optional for new pages) -->
+  <!-- Favicons (optional) -->
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
   <meta name="theme-color" content="#ffffff" />
-
 </head>
 
 <body>
@@ -22,26 +22,22 @@
     </div>
 
     <!-- Page Title -->
-    <h1>NEW PAGE</h1>
+    <h1>Today's Featured</h1>
 
-   
-
-    <!-- Dynamic Message -->
-    <p style="text-align: center; color: white; background-color:crimson;">Some warning message</p>
-
+    <!-- Dynamic Date -->
+    <p style="text-align: center; color: white; background-color:crimson;" id="article-date">Loading Date...</p>
     <br />
 
+    <!-- Article Content -->
+    <div class="article-content" id="article-content">
+      <p>Loading article...</p>
+    </div>
 
 
-    <!-- Success Message -->
-    
-
-    <!-- Navigation Buttons -->
-    <button class="past-expenses-btn">Go to Home</button><br />
-
-    <!-- Additional Links -->
-    
+    <!-- Navigation -->
+    <button class="past-expenses-btn" onclick="window.location.href='../index.html' " >Go to Home</button><br />
   </div>
+  <script src="dynamic_test.js"></script>
 </body>
 
 </html>

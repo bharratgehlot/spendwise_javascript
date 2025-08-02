@@ -52,8 +52,18 @@ Version 2.1.0 Now released
 
 - Current: 2.2.0
 
-Features to be added:
+Features added:
+
+1. Overall Design Improvements
+2. Replaced 10 Backgrounds with new one
+3. Add new template for happy august link
+4. Dynamic Articles Inserted
+5. Added go to home button on past expenses page
+
+- Current 2.3.0
 
 1. Logo
 2. Fresh 30 Backgrounds
 3. A Small settings icon with dedicated page
+4. Add new template for happy august link
+5. Add a new warning message that says updated to new vesion with link to logs
