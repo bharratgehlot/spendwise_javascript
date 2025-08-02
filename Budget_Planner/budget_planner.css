@@ -56,3 +56,47 @@ h1 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+
+.button-container button {
+  padding: 8px 12px;
+  background-color: #dd551f;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-grow: 1;
+  min-width: 120px;
+}
+
+.button-container button:hover {
+  background-color: #af7a28;
+   transition: background-color 0.3s ease;
+}
+
+
+@media screen and (max-width: 600px) {
+
+  body {
+    padding: 10px;
+  }
+
+
+
+  .button-container button {
+    min-width: unset;
+    padding: 6px 10px;
+  }
+
+  .button-container {
+    justify-content: center;
+  }
+}

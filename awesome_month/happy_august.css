@@ -56,3 +56,19 @@ h1 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* PAGE SPECIFIC STYLES */
+
+.history-section {
+  margin-top: 1rem;
+  background-color: #fff;
+}
+
+.history-section h3 {
+  color: #333;
+  text-align: center;
+}
+
+.history-section ul {
+  padding-left: 20px;
+  color: #444;
+}

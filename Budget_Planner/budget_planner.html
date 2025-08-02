@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spendwise - New Page</title>
+  <link rel="stylesheet" href="budget_planner.css" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+  <meta name="theme-color" content="#ffffff" />
+
+  
+</head>
+
+
+
+<body>
+
+  <div class="container" id="container">
+     <div class="button-wrapper">
+      <button id="toggleButton">☰</button>
+    </div>
+
+   
+
+    <h1 style="text-align:center;">Budget Planner</h1>
+
+
+
+    
+    <div class="button-container">
+      <button id="newSection">New</button>
+      <button>MB</button>
+      <button>Go to home</button>
+      <button id="clearStorage">Clear</button>
+    </div>
+
+    <p style="text-align: center; color: white; background-color:crimson;">Some warning message</p>
+
+    <button class="past-expenses-btn" onclick="window.location.href='../index.html' " >Go to Home</button>
+
+
+
+
+   
+  </div>
+
+  <script>
+    // Keep your default script
+    document.getElementById('newSection').addEventListener('click', function () {
+      document.getElementById('formSection').classList.toggle('hidden');
+    });
+
+    document.getElementById('clearStorage').addEventListener('click', function () {
+      if (confirm("Are you sure you want to clear all data? This action cannot be undone.")) {
+        localStorage.removeItem('budgetSections');
+        renderSections(); // Refresh display
+      }
+    });
+
+    function renderSections() {
+      let sectionsContainer = document.getElementById('sectionsContainer');
+      sectionsContainer.innerHTML = '';
+      let sections = JSON.parse(localStorage.getItem('budgetSections')) || [];
+
+      sections.forEach((section, index) => {
+        let div = document.createElement('div');
+        div.className = 'section';
+        div.style.backgroundColor = section.sectionColor;
+        div.innerHTML = `<h3>${section.sectionName}</h3><p>Daily Avg: ₹${(section.subsections.reduce((sum, s) => sum + Number(s.price), 0) / 30).toFixed(2)}</p>`;
+
+        let expanded = false;
+        div.addEventListener('click', function () {
+          if (!expanded) {
+            let totalSpent = section.subsections.reduce((sum, s) => sum + Number(s.price), 0);
+            div.innerHTML = `<h3>${section.sectionName}</h3>
+              <p><strong>Month:</strong> ${section.sectionDate}</p>
+              <p><strong>Target:</strong> ₹${section.targetAmount}</p>
+              <p><strong>Total Spent:</strong> ₹${totalSpent}</p>
+              <h4>Subsections:</h4>
+              ${section.subsections.map(s => `<p>${s.name}: ₹${s.price}</p>`).join('')}
+              <p><strong>Daily Avg:</strong> ₹${(totalSpent / 30).toFixed(2)}</p>`;
+            expanded = true;
+          } else {
+            div.innerHTML = `<h3>${section.sectionName}</h3><p>Daily Avg: ₹${(section.subsections.reduce((sum, s) => sum + Number(s.price), 0) / 30).toFixed(2)}</p>`;
+            expanded = false;
+          }
+        });
+
+        sectionsContainer.appendChild(div);
+      });
+    }
+
+    renderSections();
+  </script>
+</body>
+
+</html>
