@@ -1,0 +1,58 @@
+body {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  margin: 5px;
+  padding: 5px;
+  background-color: #f4f6f8;
+  display: block;
+}
+
+.container {
+  max-width: 350px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+  text-align: center;
+  color: black;
+  font-size: 2rem;
+}
+
+.button-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+#toggleButton {
+  position: absolute;
+  top: -19px;
+  right: -19px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.815);
+  color: white;
+  padding: 5px 10px;
+}
+
+.past-expenses-btn {
+  display: block;
+  padding: 10px;
+  border: none;
+  color: rgba(0, 0, 0, 0.877);
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.past-expenses-btn:hover {
+  background-color: #dfd9d9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+

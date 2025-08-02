@@ -19,7 +19,7 @@ Spendwise is a simple personal expense tracker designed to help individuals moni
 
 - **Hostinger**: Initial deployment (Date unspecified)
 - **AWS Lightsail**: Hosted from March to May
-- **Current Status**: Site is currently down
+- **Current Status**: Hosted on GitHub Pages from August 2025 
 
 ## In Action
 
