@@ -46,11 +46,7 @@ Features Added:
 3. Fixed Date improper layout.
 4. Fixed Layout Inconsistencies on both pages
 
-Version 2.1.0 Now released 
-
-
-
-- Current: 2.2.0
+- Version: 2.2.0
 
 Features added:
 
@@ -60,11 +56,24 @@ Features added:
 4. Dynamic Articles Inserted
 5. Added go to home button on past expenses page
 
-- Current 2.3.0
+- Version: 2.2.1
+
+Features added:
+
+1. Limit table row on Mobile
+2. Added some logic warnings on index.html page
+3. Added a empty catgory if it is ignored while submitting form.
+4. Added Input Validation
+5. Added Settings Page (placeholder)
+
+
+- Current 2.2.2
 
 1. Logo
 2. Fresh 30 Backgrounds
 3. A Small settings icon with dedicated page
 4. Add new template for happy august link
 5. Add a new warning message that says updated to new vesion with link to logs
-6. Fixed logical error when receiving input via prompt
+6. Limit table row on Mobile
+7. Added some logic warnings on index.html page
+8. Email Verification Logic In Settings Page
