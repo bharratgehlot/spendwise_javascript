@@ -7,8 +7,8 @@ function getRandomInt(min, max) {
 
 
 
-
-// ---BLOCK 2 --- Function to update the "Today's Read" link ------- //
+/* 
+// ---BLOCK 2 --- Became Invalid as no longer using this logic ------- //
 
 // Call the function to update the link when the page is loaded
 document.addEventListener("DOMContentLoaded", updateTodaysReadLink);
@@ -20,7 +20,7 @@ function updateTodaysReadLink() {
   var storedArticleURL = localStorage.getItem("storedArticleURl");
   // Get the current date
   var currentDate = new Date().toDateString();
-  /*
+  
     //  Only Updates if 24 hours passed before clicking
     if (!lastRedirectionDate || new Date(lastRedirectionDate).toDateString() !== currentDate.toDateString()) {
       var numArticles = 10;
@@ -39,7 +39,7 @@ function updateTodaysReadLink() {
       // Store the current date as the last redirection date in local storage
       localStorage.setItem("lastRedirectionDate", currentDate.toDateString());
   
-  */
+  
 
   if (storedArticleURL && lastRedirectionDate === currentDate) {
     // If already updated today, reuse the same link
@@ -62,7 +62,7 @@ function updateTodaysReadLink() {
   }
 }
 
-
+*/ 
 
 // ---BLOCK 3 ---- Background Image Changing & Arrays of the photo URLs -------
 
