@@ -106,14 +106,25 @@ function clearLocalStorage() {
 
 
 function addBalance() {
-  let balanceToAdd = parseFloat(prompt("How much ?"));
-  if (!isNaN(balanceToAdd)) {
-    availableBalance = parseFloat(availableBalance) + balanceToAdd;
-    document.getElementById('availableBalance').textContent = availableBalance;
-    localStorage.setItem('availableBalance', availableBalance)
-    location.reload();
-
+  let input = prompt("How much ?");
+  // Check for Null values (user cancelled) or empty strings
+  if (input === null || input.trim() === "") {
+    return;
   }
+  let balanceToAdd = parseFloat(input);
+
+  // Validate: must be a positive number and not zero
+
+  if (isNaN(balanceToAdd) || balanceToAdd <= 0 || balanceToAdd > 10000 || !/^\d+(\.\d+)?$/.test(input.trim()) ) {
+    alert("Please enter a positive number between 1 and 10,000");
+    return;
+  }
+
+  availableBalance = parseFloat(availableBalance) + balanceToAdd;
+  document.getElementById('availableBalance').textContent = availableBalance;
+  localStorage.setItem('availableBalance', availableBalance)
+  location.reload();
+
 }
 
 
@@ -172,6 +183,8 @@ function generatePDF() {
 
 // ---BLOCK 8 ---- function to get month name ------- //  
 
+/*  
+
 function getMonthName(monthNumber) {
   const months = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -179,17 +192,17 @@ function getMonthName(monthNumber) {
   ];
   return months[monthNumber];
 }
-
+*/
 
 // ---BLOCK 9 ---- Refer Button Functinality - Share on Whatsapp ------- //  
 
 
 function shareWhatsApp() {
-  let message = "💰 *SpendWise* - Your Smart Expense Tracker! 🚀\n\n" + 
-                "Easily manage your expenses, track debt, and generate reports in one place. " + 
-                "Start saving smarter today!\n\n" + 
-                "👉 Check it out here: https://www.spendwise.online";
-  
+  let message = "💰 *SpendWise* - Your Smart Expense Tracker! 🚀\n\n" +
+    "Easily manage your expenses, track debt, and generate reports in one place. " +
+    "Start saving smarter today!\n\n" +
+    "👉 Check it out here: https://www.spendwise.online";
+
   let encodedMessage = encodeURIComponent(message);
   window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
 } 

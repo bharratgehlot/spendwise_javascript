@@ -67,3 +67,4 @@ Features added:
 3. A Small settings icon with dedicated page
 4. Add new template for happy august link
 5. Add a new warning message that says updated to new vesion with link to logs
+6. Fixed logical error when receiving input via prompt
