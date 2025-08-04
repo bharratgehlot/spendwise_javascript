@@ -77,3 +77,5 @@ Features added:
 6. Limit table row on Mobile
 7. Added some logic warnings on index.html page
 8. Email Verification Logic In Settings Page
+9. PDF File Improvements
+10. PDF File Design Adjustment

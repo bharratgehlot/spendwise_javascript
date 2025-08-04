@@ -115,7 +115,7 @@ function addBalance() {
 
   // Validate: must be a positive number and not zero
 
-  if (isNaN(balanceToAdd) || balanceToAdd <= 0 || balanceToAdd > 10000 || !/^\d+(\.\d+)?$/.test(input.trim()) ) {
+  if (isNaN(balanceToAdd) || balanceToAdd <= 0 || balanceToAdd > 10000 || !/^\d+(\.\d+)?$/.test(input.trim())) {
     alert("Please enter a positive number between 1 and 10,000");
     return;
   }
@@ -128,7 +128,29 @@ function addBalance() {
 }
 
 
-// ---BLOCK 7 ---- function for handling downloading pdf ------- //  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BLOCK 7 ------ Function for handling downloading PDF ------- //  
+
+
+
 
 
 function generatePDF() {
@@ -137,12 +159,20 @@ function generatePDF() {
   const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
   const wastedStatus = JSON.parse(localStorage.getItem('wastedStatus')) || {};
   const availableBalance = localStorage.getItem('availableBalance');
+  const totalMoneySpent = localStorage.getItem('totalMoneySpent');
+
+
 
   doc.setFontSize(18);
   doc.text('Past Expenses', 20, 20);
 
   doc.setFontSize(12);
   doc.text(`Available Balance: ${availableBalance} INR`, 20, 30);
+
+  doc.setFontSize(12);
+  doc.text(`Money Spent: ${totalMoneySpent} INR`, 140, 30);
+
+
 
   const tableHeader = ['#', 'Money (INR)', 'Description', 'Date', 'Location', 'Category', 'Outcome'];
   const tableRows = expenses.map((expense, index) => {
@@ -160,41 +190,97 @@ function generatePDF() {
     ];
   });
 
+  /* 
+    doc.autoTable({
+      head: [tableHeader],
+      body: tableRows,
+      startY: 50,
+      styles: {
+        fontSize: 10,
+        cellPadding: 2,
+        fillColor: [240,240,240]
+      },
+      didDrawCell: (data) => {
+        if (wastedStatus[data.row.rowIndex - 1]) {
+          doc.setFillColor(255, 204, 204); // Light red color for wasted expenses
+          doc.rect(data.cell.x, data.cell.y, data.cell.width, data.cell.height, 'FD');
+          doc.setFillColor(0, 0, 0); // Reset fill color to black
+        }
+      },
+    });
+  */
+
   doc.autoTable({
     head: [tableHeader],
     body: tableRows,
-    startY: 35,
+    startY: 50,
     styles: {
       fontSize: 10,
       cellPadding: 2,
+      fillColor: [255, 255, 255], // White background
+      textColor: [0, 0, 0], // Black text
+      lineColor: [138, 96, 19], // Border color
+      lineWidth: 0.3,
     },
+    headStyles: {
+      fillColor: [223, 209, 20], // #dfd114 in RGB
+      textColor: [0, 0, 0], // Black text
+    },
+    tableLineColor: [138, 96, 19], // Table border color
+    tableLineWidth: 0.4,
+
+    /* 
+        didDrawCell: (data) => {
+          if (data.section === 'body' && wastedStatus[data.row.index]) {
+            doc.setFillColor(255, 204, 204); // #ffcccc for wasted rows
+            doc.rect(data.cell.x, data.cell.y, data.cell.width, data.cell.height, 'FD');
+            doc.setTextColor(160, 0, 0); // #a00000 text color for wasted rows
+            doc.text(data.cell.text, data.cell.x + 2, data.cell.y + data.cell.height / 2 + 2);
+          }
+        },
+    
+        willDrawCell: (data) => {
+          if (data.section === 'body' && wastedStatus[data.row.index]) {
+            data.cell.styles.fillColor = [255, 204, 204];
+            data.cell.styles.textColor = [160, 0, 0];
+          }
+        },
+    
+    */
+
     didDrawCell: (data) => {
-      if (wastedStatus[data.row.rowIndex - 1]) {
-        doc.setFillColor(255, 204, 204); // Light red color for wasted expenses
+      if (data.section === 'body' && wastedStatus?.[data.row.index]) {
+        // Draw background
+        doc.setFillColor(255, 204, 204); // Light red
         doc.rect(data.cell.x, data.cell.y, data.cell.width, data.cell.height, 'FD');
-        doc.setFillColor(0, 0, 0); // Reset fill color to black
+
+        // Draw text
+        doc.setTextColor(160, 0, 0); // Dark red
+        data.cell.text = ''; // Prevent default rendering
+
+        const text = String(data.cell.raw ?? '');
+        const textDims = doc.getTextDimensions(text);
+        const textHeight = textDims.h;
+
+        // Center text vertically
+        const textX = data.cell.x + 2;
+        const textY = data.cell.y + (data.cell.height + textHeight) / 2 - 1; // the -1 fine-tunes alignment
+
+        doc.text(text, textX, textY);
       }
-    },
+    }
+
   });
 
-  doc.save('may-expenses.pdf');
+  doc.save(`${getMonthName(new Date().getMonth()).toLocaleLowerCase()}-expense.pdf`);
 }
 
 
-// ---BLOCK 8 ---- function to get month name ------- //  
 
-/*  
 
-function getMonthName(monthNumber) {
-  const months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December',
-  ];
-  return months[monthNumber];
-}
-*/
 
-// ---BLOCK 9 ---- Refer Button Functinality - Share on Whatsapp ------- //  
+
+// ---BLOCK 8 ---- Refer Button Functinality - Share on Whatsapp ------- //  
 
 
 function shareWhatsApp() {
