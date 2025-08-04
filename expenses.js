@@ -290,5 +290,5 @@ function shareWhatsApp() {
     "👉 Check it out here: https://www.spendwise.online";
 
   let encodedMessage = encodeURIComponent(message);
-  window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
+  window.open(`https://wa.me/?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
 } 

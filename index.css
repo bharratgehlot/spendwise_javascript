@@ -205,6 +205,25 @@ button[type="button"]:hover {
   color: white;
 }
 
+
+
+.awesome-month {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  color: white;
+  background-color: crimson;
+  transition: background-color 0.3s ease;
+}
+
+.awesome-month:hover {
+  background-color: black;
+}
+
+
+
+
+
 @media (max-width: 768px) {
 
   
