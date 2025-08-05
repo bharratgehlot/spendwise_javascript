@@ -1,70 +1,36 @@
 
-// ---BLOCK 1 ---- Function to generate a random number ------- //
+
+// ----- BLOCK 1 ----- Function to generate a random number ----- //
+
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
+// ----- BLOCK 2 ----- Logic for repititive name input ----- //
 
-/* 
-// ---BLOCK 2 --- Became Invalid as no longer using this logic ------- //
+// Run immediately
 
-// Call the function to update the link when the page is loaded
-document.addEventListener("DOMContentLoaded", updateTodaysReadLink);
 
-function updateTodaysReadLink() {
-
-  // Check last redirection
-  var lastRedirectionDate = localStorage.getItem("lastRedirectionDate");
-  var storedArticleURL = localStorage.getItem("storedArticleURl");
-  // Get the current date
-  var currentDate = new Date().toDateString();
-  
-    //  Only Updates if 24 hours passed before clicking
-    if (!lastRedirectionDate || new Date(lastRedirectionDate).toDateString() !== currentDate.toDateString()) {
-      var numArticles = 10;
-  
-      // Generate a random article number
-      var randomArticleNumber = getRandomInt(1, numArticles);
-      console.log("Random Article Number: ",randomArticleNumber);
-  
-      // Construct the URL for the random article
-      var randomArticleURL = "articles/article" + randomArticleNumber + ".html";
-      console.log(randomArticleURL);
-  
-      // Set the href attribute of the link to the random article URL
-      document.getElementById("todaysReadLink").setAttribute("href", randomArticleURL);
-  
-      // Store the current date as the last redirection date in local storage
-      localStorage.setItem("lastRedirectionDate", currentDate.toDateString());
-  
-  
-
-  if (storedArticleURL && lastRedirectionDate === currentDate) {
-    // If already updated today, reuse the same link
-    console.log("Reusing stored URL:", storedArticleURL);
-    document.getElementById("todaysReadLink").setAttribute("href", storedArticleURL);
-  } else {
-    var numArticles = 10;
-    var randomArticleNumber = getRandomInt(1, numArticles);
-    console.log("Random Article Number:", randomArticleNumber);
-
-    var randomArticleURL = "articles/article" + randomArticleNumber + ".html";
-    console.log("Generated new URL:", randomArticleURL);
-
-    document.getElementById("todaysReadLink").setAttribute("href", randomArticleURL);
-
-    // Store the new link and date
-    localStorage.setItem("lastRedirectionDate", currentDate);
-    localStorage.setItem("storedArticleURL", randomArticleURL);
-
-  }
+const storedUserName = localStorage.getItem('storedUserName');
+if (storedUserName) {
+  document.getElementById('userName').value = storedUserName;
 }
 
-*/ 
+// Run After DOM is Loaded
 
-// ---BLOCK 3 ---- Background Image Changing & Arrays of the photo URLs -------
+/* 
+document.addEventListener('DOMContentLoaded', function() {
+const storedUserName = localStorage.getItem('storedUserName');
+if (storedUserName) {
+ document.getElementById('userName').value = storedUserName;
+}
+});
+*/
+
+// ----- BLOCK 3 ----- Background Image Changing & Arrays of the photo URLs ----- //  
+
 
 const photos = [
   'backgrounds/photo1.jpg',
@@ -126,6 +92,10 @@ setInterval(() => {
   }
 }, 24 * 60 * 60 * 1000); // Set background photo every 24 hours if not locked
 
+
+// ----- BLOCK 4 ----- Toggle Button Logic ----- //  
+
+
 const toggleButton = document.getElementById('toggleButton');
 updateButtonState(); // Update button state on page load
 
@@ -148,22 +118,12 @@ function updateButtonState() {
 }
 
 
+// ----- BLOCK 5 ----- Code for handling expenses, calculation ----- //  
 
-// ---BLOCK 4 ---- Code for handling expenses, calculation -------
 
 let availableBalance = localStorage.getItem('availableBalance');
 
 let totalMoneySpent = parseInt(localStorage.getItem('totalMoneySpent')) || 0;  //Money Spent Box
-
-
-
-
-
-
-
-
-
-
 
 
 if (availableBalance === null) {
@@ -188,92 +148,95 @@ if (availableBalance === null) {
       availableBalance = parsedBalance;
       break;
     }
-   } while (true);
+  } while (true);
 
-    localStorage.setItem('availableBalance', availableBalance);
-    localStorage.setItem('initialBalance', availableBalance);
+  localStorage.setItem('availableBalance', availableBalance);
+  localStorage.setItem('initialBalance', availableBalance);
 
 
-  }else {
-    availableBalance = parseInt(availableBalance);
+} else {
+  availableBalance = parseInt(availableBalance); // Can be used parseFloat if stored as string
+}
+
+document.getElementById('availableBalance').textContent = availableBalance;
+document.getElementById('totalSpentAmount').textContent = totalMoneySpent; // Update total money spent box
+
+
+
+document.getElementById('expenseForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  let userName = document.getElementById('userName').value;
+  let money = parseInt(document.getElementById('money').value);
+  let description = document.getElementById('description').value;
+  let date = document.getElementById('date').value;
+  let location = document.getElementById('location').value;
+  let category = document.getElementById('category').value;
+
+  if (money > availableBalance) {
+    alert("You don't have enough money to spend this amount.");
+    return;
   }
 
+  if (!category) {
+    alert("Please select a category.");
+    return;
+  }
+
+  if (money <= 0) {
+    alert("Please enter a valid amount.");
+    return;
+  }
+
+
+  let expense = {
+    userName,
+    money,
+    description,
+    date,
+    location,
+    category,
+  };
+
+  let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+  expenses.push(expense);
+  localStorage.setItem('expenses', JSON.stringify(expenses));
+
+  localStorage.setItem('storedUserName', userName);  // Will stored username for later use
+
+  // Deduct spend amount from available balance
+  availableBalance -= money;
   document.getElementById('availableBalance').textContent = availableBalance;
+  localStorage.setItem('availableBalance', availableBalance);
+
+
+  // Update total money spent
+  totalMoneySpent += money;
   document.getElementById('totalSpentAmount').textContent = totalMoneySpent; // Update total money spent box
 
 
+  // Display success message
+  document.getElementById('successMessage').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('successMessage').style.display = 'none'; // Hide success message after 3 seconds
+    window.location.reload(); // Reload the page to reflect changes
+  }, 2000);
 
-  document.getElementById('expenseForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    let userName = document.getElementById('userName').value;
-    let money = parseInt(document.getElementById('money').value);
-    let description = document.getElementById('description').value;
-    let date = document.getElementById('date').value;
-    let location = document.getElementById('location').value;
-    let category = document.getElementById('category').value;
+  // Clear form fields after submission
+  this.reset();
+});
 
-    if (money > availableBalance) {
-      alert("You don't have enough money to spend this amount.");
-      return;
-    }
+// Store the updated total money spent in localStorage when the page unloads
+window.addEventListener('beforeunload', function () {
+  localStorage.setItem('totalMoneySpent', totalMoneySpent);
+});
 
-    if (!category) {
-      alert("Please select a category.");
-      return;
-    }
-
-    if (money <= 0) {
-      alert("Please enter a valid amount.");
-      return;
-    }
-
-
-    let expense = {
-      userName,
-      money,
-      description,
-      date,
-      location,
-      category,
-    };
-
-    let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-    expenses.push(expense);
-    localStorage.setItem('expenses', JSON.stringify(expenses));
-
-    // Deduct spend amount from available balance
-    availableBalance -= money;
-    document.getElementById('availableBalance').textContent = availableBalance;
-    localStorage.setItem('availableBalance', availableBalance);
-
-
-    // Update total money spent
-    totalMoneySpent += money;
+// Add event listener to clear total money spent when local storage is cleared
+window.addEventListener('storage', function (e) {
+  if (e.key === null) {
+    totalMoneySpent = 0;
     document.getElementById('totalSpentAmount').textContent = totalMoneySpent; // Update total money spent box
+  }
+});
 
 
-    // Display success message
-    document.getElementById('successMessage').style.display = 'block';
-    setTimeout(() => {
-      document.getElementById('successMessage').style.display = 'none'; // Hide success message after 3 seconds
-      window.location.reload(); // Reload the page to reflect changes
-    }, 2000);
-
-    // Clear form fields after submission
-    this.reset();
-  });
-
-  // Store the updated total money spent in localStorage when the page unloads
-  window.addEventListener('beforeunload', function () {
-    localStorage.setItem('totalMoneySpent', totalMoneySpent);
-  });
-
-  // Add event listener to clear total money spent when local storage is cleared
-  window.addEventListener('storage', function (e) {
-    if (e.key === null) {
-      totalMoneySpent = 0;
-      document.getElementById('totalSpentAmount').textContent = totalMoneySpent; // Update total money spent box
-    }
-  });
-
-// settings
+// ----- BLOCK 7 ----- ANYTHING ELSE ----- //  

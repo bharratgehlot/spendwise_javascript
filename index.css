@@ -81,6 +81,12 @@ select {
 
 }
 
+.mini_games {
+  color: #eed651;
+  text-align: center;
+  text-decoration: none;
+}
+
 .todaysread:hover {
   text-decoration: underline;
 }
@@ -89,6 +95,9 @@ select {
   text-decoration: underline;
 }
 
+.mini_games:hover{
+  text-decoration: underline;
+}
 
 
 input[type="submit"],

@@ -66,9 +66,20 @@ h1 {
 .history-section h3 {
   color: #333;
   text-align: center;
+  padding-bottom:10px;
+  text-decoration: underline;
 }
 
 .history-section ul {
   padding-left: 20px;
   color: #444;
+  font-size: 15px;
+
+}
+
+.history-section a {
+  
+  color: #333;
+
+ 
 }

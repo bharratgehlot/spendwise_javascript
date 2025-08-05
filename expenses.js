@@ -164,17 +164,22 @@ function generatePDF() {
 
 
   doc.setFontSize(18);
+  doc.setFont(undefined, 'bold');
+  doc.setTextColor(40,40,40);
   doc.text('Past Expenses', 20, 20);
 
   doc.setFontSize(12);
   doc.text(`Available Balance: ${availableBalance} INR`, 20, 30);
+  doc.setFont(undefined, 'normal');
+  doc.setTextColor(0,100,0);
 
   doc.setFontSize(12);
+  doc.setTextColor(0,100,0);
   doc.text(`Money Spent: ${totalMoneySpent} INR`, 140, 30);
 
 
 
-  const tableHeader = ['#', 'Money (INR)', 'Description', 'Date', 'Location', 'Category', 'Outcome'];
+  const tableHeader = ['#', 'Money (INR)', 'Description', 'Date', 'Location', 'Category', 'Wasted?'];
   const tableRows = expenses.map((expense, index) => {
     const date = new Date(expense.date);
     const formattedDate = `${date.getDate()} ${getMonthName(date.getMonth())}`;
