@@ -3,11 +3,10 @@ body {
   margin: 5px;
   padding: 5px;
   background-color: #f4f6f8;
-  display: block;
 }
 
 .container {
-  max-width: 550px;
+  max-width: 650px;
   margin: 0 auto;
   background-color: #ffffff;
   padding: 20px;
@@ -34,6 +33,7 @@ h1 {
   background-color: rgba(0, 0, 0, 0.815);
   color: white;
   padding: 5px 10px;
+  border-radius: 3px;
 }
 
 .past-expenses-btn {
@@ -60,13 +60,12 @@ h1 {
 
 .history-section {
   margin-top: 1rem;
-  background-color: #fff;
 }
 
 .history-section h3 {
   color: #333;
   text-align: center;
-  padding-bottom:10px;
+  padding-bottom: 10px;
   text-decoration: underline;
 }
 
@@ -78,8 +77,20 @@ h1 {
 }
 
 .history-section a {
-  
   color: #333;
+}
 
- 
+.history-section img {
+  max-width: 500px;
+  height: auto;
+  border-radius: 5px;
+  margin: 10px auto;
+  display: block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 480px) {
+  .history-section img {
+    max-width: 300px;
+  }
 }
