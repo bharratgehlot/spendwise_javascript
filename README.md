@@ -67,15 +67,20 @@ Features added:
 5. Added Settings Page (placeholder)
 
 
-- Current 2.2.2
+- Version: 2.2.2
 
-1. Logo
+1. A Small settings icon with dedicated page
+2. Add new template for happy august link
+3. Limit table row on Mobile
+4. Added some logic warnings on index.html page
+5. Added a placeholder for mini games
+6. Repititive Name input solved
+7. Fixed Several things
+
+- Current: 2.2.3
+
+1. Logo, App Icon, 
 2. Fresh 30 Backgrounds
-3. A Small settings icon with dedicated page
-4. Add new template for happy august link
-5. Add a new warning message that says updated to new vesion with link to logs
-6. Limit table row on Mobile
-7. Added some logic warnings on index.html page
-8. Email Verification Logic In Settings Page
-9. PDF File Improvements
-10. PDF File Design Adjustment
+3. Add a new warning message that says updated to new vesion with link to logs
+4. Email Verification Logic In Settings Page
+5. Added catch the falling food mini game
