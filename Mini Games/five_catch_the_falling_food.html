@@ -1,12 +1,290 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Catch the falling food</title>
+    <style>
+        /* ---------- Global Styles ---------- */
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* ---------- Game Area ---------- */
+
+        .game-area {
+            border: 3px solid #333;
+            position: relative;
+            width: 400px;
+            height: 600px;
+            background-color: #ffffff;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+        }
+
+        .game-area::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* ---------- Score Display ---------- */
+
+        .score {
+            position: absolute;
+            top: 10px;
+            font-size: 18px;
+            color: #333;
+            right: 10px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        /* ---------- Rock (Falling Object) ---------- */
+
+
+        .rock {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+        }
+
+        /* ---------- Player (Catcher) ---------- */
+
+        .player {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 32px;
+            user-select: none;
+            z-index: 2;
+
+        }
+
+        .start-game {
+            padding: 6px 14px;
+            font-size: 14px;
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .start-game:hover {
+            background-color: #333;
+            transform: translate(-50%, -50%) scale(1.08);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .controls button {
+            padding: 6px 12px;
+            font-size: 16px;
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        .controls button:active {
+            transform: scale(0.95);
+        }
+    </style>
+
 </head>
+
 <body>
-    <h1>Catch the falling food</h1>
+    <div id="game-area" class="game-area">
+        <button onclick="startGame()" class="start-game" id="start-game"> Start Game</button>
+        <p id="score" class="score">Score: 0</p>
+        <img id="rock" class="rock" src="assets/catch_falling_rock/rock4.png" alt="rock">
+        <img id="player" class="player" src="assets/catch_falling_rock/mouth4.png" alt="player">
+        <audio id="catch-sound" src="assets/catch_falling_rock/catch2.wav" preload="auto"></audio>
+        <div class="controls">
+            <button id="left-btn">⬅️</button>
+            <button id="right-btn">➡️</button>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+
+        /* ---------- Falling Rock Logic ---------- */
+
+
+        const rock = document.getElementById('rock');
+        const player = document.getElementById('player');
+        const gameArea = document.getElementById('game-area');
+        const scoreDisplay = document.getElementById('score');
+        const catchSound = document.getElementById('catch-sound')
+
+        let score = 0;
+        let dropCount = 0;
+        const maxDrops = 10;
+
+        function getRandomX() {
+            const gameAreaWidth = gameArea.clientWidth;
+            const rockWidth = rock.clientWidth;
+            return Math.floor(Math.random() * (gameAreaWidth - rockWidth));
+        }
+
+        function checkCollision(rockRect, playerRect) {
+            return !(
+                rockRect.bottom < playerRect.top ||
+                rockRect.top > playerRect.bottom ||
+                rockRect.right < playerRect.left ||
+                rockRect.left > playerRect.right
+            );
+        }
+
+        function dropRock() {
+            if (dropCount >= maxDrops) return;
+
+            let y = 0;
+            rock.style.top = y + "px";
+            rock.style.left = getRandomX() + "px";
+
+            const fallInterval = setInterval(() => {
+                y += 10;
+                rock.style.top = y + "px";
+
+                const rockRect = rock.getBoundingClientRect();
+                const playerRect = player.getBoundingClientRect();
+
+                if (checkCollision(rockRect, playerRect)) {
+
+                    if (gameStarted) {
+                        catchSound.currentTime = 0;
+                        catchSound.play();
+                    }
+
+                    score++;
+                    scoreDisplay.textContent = "Score: " + score;
+
+                    clearInterval(fallInterval);
+                    dropCount++;
+                    if (dropCount < maxDrops) {
+                        setTimeout(dropRock, 500);
+                    } else {
+                        gameStarted = false;
+                        document.getElementById('start-game').style.display = 'block';
+                    }
+                    return;
+                }
+
+                if (y > gameArea.clientHeight - rock.clientHeight) {
+                    clearInterval(fallInterval);
+                    dropCount++;
+                    if (dropCount < maxDrops) {
+                        setTimeout(dropRock, 500);
+                    } else {
+                        gameStarted = false;
+                        document.getElementById('start-game').style.display = 'block';
+                    }
+                }
+            }, 30);
+        }
+
+
+
+
+
+
+
+
+
+        /* ---------- MOVE MOUTH LEFT AND RIGHT ---------- */
+
+
+
+        const moveAmount = 20;
+        const leftBtn = document.getElementById("left-btn");
+        const rightBtn = document.getElementById("right-btn");
+
+        leftBtn.addEventListener("click",()=>{
+            if (!gameStarted) return;
+            const currentLeft = parseInt(getComputedStyle(player).left, 10) || 0;
+            const newLeft = Math.max(0, currentLeft - moveAmount);
+            player.style.left = newLeft + "px";
+        });
+
+
+
+        rightBtn.addEventListener("click",()=> {
+            if (!gameStarted) return; 
+            const currentLeft = parseInt(getComputedStyle(player).left, 10) || 0;
+            const gameAreaWidth = gameArea.clientWidth;
+            const playerWidth = player.clientWidth;
+            const newLeft = Math.min(gameAreaWidth - playerWidth, currentLeft + moveAmount);
+            player.style.left = newLeft + "px";
+        });
+
+
+
+        let gameStarted = false;
+
+        function startGame() {
+            
+            document.getElementById('start-game').style.display = 'none';
+            score = 0;
+            dropCount = 0;
+            scoreDisplay.textContent = "Score: " + score;
+            gameStarted = true;
+            dropRock();
+        }
+
+
+
+    </script>
+
+
+
 </body>
+
 </html>
