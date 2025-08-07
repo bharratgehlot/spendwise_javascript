@@ -25,11 +25,11 @@
         .game-area {
             border: 3px solid #333;
             position: relative;
-            width: 400px;
-            height: 600px;
+            width: 500px;
+            height: 700px;
             background-color: #ffffff;
             overflow: hidden;
-            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+            background-image: url('assets/catch_falling_rock/photo16.jpg');
         }
 
         .game-area::before {
@@ -166,7 +166,7 @@
 
         let score = 0;
         let dropCount = 0;
-        const maxDrops = 10;
+        const maxDrops = 15;
 
         function getRandomX() {
             const gameAreaWidth = gameArea.clientWidth;
@@ -191,7 +191,7 @@
             rock.style.left = getRandomX() + "px";
 
             const fallInterval = setInterval(() => {
-                y += 10;
+                y += 5;
                 rock.style.top = y + "px";
 
                 const rockRect = rock.getBoundingClientRect();
@@ -228,7 +228,7 @@
                         document.getElementById('start-game').style.display = 'block';
                     }
                 }
-            }, 30);
+            }, 16);
         }
 
 
