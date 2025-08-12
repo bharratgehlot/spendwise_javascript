@@ -148,7 +148,7 @@ th {
 @media screen and (max-width: 600px) {
 
   body {
-    padding: 10px;
+    padding: 0;
   }
 
   .balance-box {

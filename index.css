@@ -77,29 +77,26 @@ select {
 
 
 
-.Budget_Planner,
-.todaysread {
+.link-container .Budget_Planner,
+.link-container .todaysread {
   color: #ffffff;
   text-align: center;
   text-decoration: none;
 
 }
 
-.mini_games {
-  color: #eed651;
+.link-container .mini_games {
+  color: #e1f012;
   text-align: center;
   text-decoration: none;
+  background-color: black;
+  padding: 3px;
+  border-radius: 2px;
 }
 
-.todaysread:hover {
-  text-decoration: underline;
-}
-
-.Budget_Planner:hover {
-  text-decoration: underline;
-}
-
-.mini_games:hover{
+ .link-container .todaysread:hover,
+ .link-container .Budget_Planner:hover,
+ .link-container .mini_games:hover {
   text-decoration: underline;
 }
 
@@ -244,11 +241,29 @@ button[type="button"]:hover {
 
 @media (max-width: 768px) {
 
-  
+    body {
+    padding: 0;
+  }
+
 
   .bal-container {
     flex-direction: row;
     gap: 5px;
+  }
+
+  .link-container {
+    gap: 10px;
+  }
+
+  .link-container .Budget_Planner,
+  .link-container .todaysread {
+    font-size: 14px;
+  }
+
+
+  .link-container .mini_games {
+    font-size: 14px;
+    padding: 0;
   }
 
 }
