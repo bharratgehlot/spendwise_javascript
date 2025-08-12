@@ -97,6 +97,31 @@
 
     renderSections();
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0Y921MTGZ"></script>
+
+
+  <script>
+
+    const localhosts = ['localhost', '127.0.0.1', '127.0.0.2'];
+
+    if (!localhosts.includes(window.location.hostname)) {
+
+      // GA4 Tracking code
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-G0Y921MTGZ');
+      
+    }
+
+    else {
+      console.log('Google Analystics disabled for Local Enviornment');
+    }
+
+
+  </script>
+
 </body>
 
 </html>
