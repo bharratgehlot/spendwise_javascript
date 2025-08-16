@@ -57,3 +57,4 @@ Features added:
 7. Fixed UI on past expenses
 8. Add a small copyright label at bottom "age of apps"
 9. Layout Fixes in Index.html main page
+10. Add firebase database integration with email and password or just email to use database
