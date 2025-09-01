@@ -15,6 +15,14 @@ Spendwise is a simple personal expense tracker designed to help individuals moni
 - CSS
 - JavaScript
 
+## Total Money Spent
+
+- Hosting => Hostinger => 3384 Rs / One Year
+- Hosting => Lightsail => 616 Rs / Three Months
+- Domain => mangotools.in => 589 Rs / One Year
+- Domain => spendwise.online => 217 Rs / One Year
+- TOTAL => 4803 Rs
+
 ## Deployment History
 
 - **Hostinger**: Initial deployment (Date unspecified)

@@ -1,0 +1,23 @@
+which branch? main
+
+Styles:
+
+Default Template:
+
+Bg color :   background-color: #f4f6f8;
+Bg container color :  background-color: #ffffff;
+Box Shadow : box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+Max width : 550px;
+
+Will add subscription model + ads
+
+Requirement for sub model - 
+Requirement for ads model - 
+
+Monetization Strategy:
+
+
+Features:
+
+Implement a auto email Features at the end of the day
+Add a setting for auto clear option at end of the monnth (requires auto email sending on)
