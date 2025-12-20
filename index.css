@@ -219,11 +219,11 @@ button[type="button"]:hover {
 
 
 .awesome-month {
-  text-decoration: none;
+  text-decoration: dashed;
   display: block;
   text-align: center;
   color: white;
-  background-color: crimson;
+  background-color: rgb(52, 54, 47);
   transition: background-color 0.3s ease;
 }
 
