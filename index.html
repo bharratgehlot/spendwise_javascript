@@ -2,129 +2,161 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spendwise - A Financial Accountant Tool</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="index.css" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spendwise - A Financial Accountant Tool </title>
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="index.css">
+    <!-- Google tag for analysis purpose -->
+    <!-- New Update but for december -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G0Y921MTGZ"
+    ></script>
 
-  <!-- Google tag for analysis purpose -->
+    <script>
+      const localhosts = ["localhost", "127.0.0.1", "127.0.0.2"];
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0Y921MTGZ"></script>
+      if (!localhosts.includes(window.location.hostname)) {
+        // GA4 Tracking code
 
-
-  <script>
-
-    const localhosts = ['localhost', '127.0.0.1', '127.0.0.2'];
-
-    if (!localhosts.includes(window.location.hostname)) {
-
-      // GA4 Tracking code
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-G0Y921MTGZ');
-      
-    }
-
-    else {
-      console.log('Google Analystics disabled for Local Enviornment');
-    }
-
-
-  </script>
-
-</head>
-
-<body>
-
-  <div class="container" id="container">
-    <div class="button-wrapper">
-      <button id="toggleButton"></button>
-    </div>
-
-    <div class="settings-button-wrapper2">
-      <button id="settingsButton" onclick="window.location.href='user_settings/user_settings.html' ">☰</button>
-    </div>
-
-
-    <h1>--Spend-WISE</h1>
-    <div class="bal-container">
-      <div class="balance-box">Bal: <span id="availableBalance"></span> Rs</div>
-      <div class="balance-box" id="totalMoneySpent">Spent: <span id="totalSpentAmount"></span> Rs</div>
-    </div>
-
-    <a href="" class="awesome-month">Happy November</a>
-
-    <br>
-    <form id="expenseForm">
-      <label for="userName">Name:</label>
-      <input type="text" id="userName" name="userName" required>
-      <label for="money">Money (INR):</label>
-      <input type="number" id="money" name="money" required>
-      <label for="description">Description:</label>
-      <input type="text" id="description" name="description" required>
-      <label for="date">Date:</label>
-      <input type="date" id="date" name="date" required>
-      <label for="location">Location:</label>
-      <input type="text" id="location" name="location">
-      <label for="category">Category:</label>
-
-      <select id="category" name="category">
-        <option value="" selected disabled hidden>Select a category</option>
-        <option value="Fuel">Fuel</option>
-        <option value="Bills & Recharges">Bills & Recharges</option>
-        <option value="Grocery & Kirana">Grocery & Kirana</option>
-        <option value="Saag Sabji">Saag Sabji</option>
-        <option value="Fruits">Fruits</option>
-        <option value="Milk">Milk</option>
-        <option value="Medical">Medical</option>
-        <option value="Others">Others</option>
-        <option value="Private">Private</option>
-        <option value="Entertainment">Entertainment</option>
-        <option value="Donations">Donations</option>
-      </select>
-
-      <input type="submit" value="Add Expense">
-    </form>
-    <p id="successMessage" style="display: none; text-align: center; color: rgb(255, 255, 255); margin-top: 0;">Data
-      submitted
-      successfully!</p>
-
-    <button class="past-expenses-btn" onclick="window.location.href='expenses.html';">Past Expenses</button><br>
-    
-    <div class="link-container">
-      <a href="articles/dynamic_test.html" class="todaysread">Today's Read</a>
-      <a href="/Budget_Planner/budget_planner.html" class="Budget_Planner">Budget Planner</a>
-      <a href="/Mini Games/mini_games.html" class="mini_games">Mini Games</a>
-    </div>
-
-  </div>
-
-
-
-
-  <script src="index.js"></script>
-  <script>
-    // Set default date to today
-    window.addEventListener('DOMContentLoaded', function () {
-      const dateInput = document.getElementById('date');
-      if (dateInput) {
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const dd = String(today.getDate()).padStart(2, '0');
-        dateInput.value = `${yyyy}-${mm}-${dd}`;
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-G0Y921MTGZ");
+      } else {
+        console.log("Google Analystics disabled for Local Enviornment");
       }
-    });
-  </script>
-</body>
+    </script>
+  </head>
+
+  <body>
+    <div class="container" id="container">
+      <div class="button-wrapper">
+        <button id="toggleButton"></button>
+      </div>
+
+      <div class="settings-button-wrapper2">
+        <button
+          id="settingsButton"
+          onclick="window.location.href='user_settings/user_settings.html' "
+        >
+          ☰
+        </button>
+      </div>
+
+      <h1>--Spend-WISE</h1>
+      <div class="bal-container">
+        <div class="balance-box">
+          Bal: <span id="availableBalance"></span> Rs
+        </div>
+        <div class="balance-box" id="totalMoneySpent">
+          Spent: <span id="totalSpentAmount"></span> Rs
+        </div>
+      </div>
+
+      <a href="" class="awesome-month">Happy November</a>
+
+      <br />
+      <form id="expenseForm">
+        <label for="userName">Name:</label>
+        <input type="text" id="userName" name="userName" required />
+        <label for="money">Money (INR):</label>
+        <input type="number" id="money" name="money" required />
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required />
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required />
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" />
+        <label for="category">Category:</label>
+
+        <select id="category" name="category">
+          <option value="" selected disabled hidden>Select a category</option>
+          <option value="Fuel">Fuel</option>
+          <option value="Bills & Recharges">Bills & Recharges</option>
+          <option value="Grocery & Kirana">Grocery & Kirana</option>
+          <option value="Saag Sabji">Saag Sabji</option>
+          <option value="Fruits">Fruits</option>
+          <option value="Milk">Milk</option>
+          <option value="Medical">Medical</option>
+          <option value="Others">Others</option>
+          <option value="Private">Private</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Donations">Donations</option>
+        </select>
+
+        <input type="submit" value="Add Expense" />
+      </form>
+      <p
+        id="successMessage"
+        style="
+          display: none;
+          text-align: center;
+          color: rgb(255, 255, 255);
+          margin-top: 0;
+        "
+      >
+        Data submitted successfully!
+      </p>
+
+      <button
+        class="past-expenses-btn"
+        onclick="window.location.href='expenses.html';"
+      >
+        Past Expenses</button
+      ><br />
+
+      <div class="link-container">
+        <a href="articles/dynamic_test.html" class="todaysread">Today's Read</a>
+        <a href="/Budget_Planner/budget_planner.html" class="Budget_Planner"
+          >Budget Planner</a
+        >
+        <a href="/Mini Games/mini_games.html" class="mini_games">Mini Games</a>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+    <script
+      data-goatcounter="https://bharrat-gehlot.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+    <script>
+      // Set default date to today
+      window.addEventListener("DOMContentLoaded", function () {
+        const dateInput = document.getElementById("date");
+        if (dateInput) {
+          const today = new Date();
+          const yyyy = today.getFullYear();
+          const mm = String(today.getMonth() + 1).padStart(2, "0");
+          const dd = String(today.getDate()).padStart(2, "0");
+          dateInput.value = `${yyyy}-${mm}-${dd}`;
+        }
+      });
+    </script>
+  </body>
 </html>
